@@ -49,6 +49,7 @@ jobs:
       max-parallel: 16
       matrix:
         patch:
+          - original.patch
           - bug0.patch
           - bug1.patch
           - bug2.patch
