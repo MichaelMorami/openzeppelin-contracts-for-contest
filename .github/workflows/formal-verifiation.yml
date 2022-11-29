@@ -49,8 +49,8 @@ jobs:
       max-parallel: 16
       matrix:
         patch:
+          - bug0.patch
           - bug1.patch
           - bug2.patch
-          - bug3.patch
         rule:
           - verifyERC20.sh 
