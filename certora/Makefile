@@ -3,6 +3,7 @@ default: help
 PATCH         = applyHarness.patch
 CONTRACTS_DIR = ../contracts
 MUNGED_DIR    = munged
+BUG_NUMBER = ls tests/wardens | wc -l
 
 help:
 	@echo "usage:"
@@ -18,7 +19,8 @@ munged:  $(wildcard $(CONTRACTS_DIR)/*.sol) $(PATCH)
 record:
 	diff -druN $(CONTRACTS_DIR) $(MUNGED_DIR) | sed 's+../contracts/++g' | sed 's+munged/++g' > $(PATCH)
 
-refresh: munged record
+bug:
+	git diff HEAD -- munged > bug$(BUG_NUMBER).patch
 
 clean:
 	git clean -fdX
