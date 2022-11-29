@@ -20,7 +20,7 @@ record:
 	diff -druN $(CONTRACTS_DIR) $(MUNGED_DIR) | sed 's+../contracts/++g' | sed 's+munged/++g' > $(PATCH)
 
 bug:
-	git diff HEAD -- munged > tests/wardens/"bug$(BUG_NUMBER).patch"
+	git diff HEAD -- munged > tests/wardens/"bug$(BUG_NUMBER)".patch
 
 clean:
 	git clean -fdX
