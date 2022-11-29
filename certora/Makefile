@@ -19,6 +19,7 @@ munged:  $(wildcard $(CONTRACTS_DIR)/*.sol) $(PATCH)
 record:
 	diff -druN $(CONTRACTS_DIR) $(MUNGED_DIR) | sed 's+../contracts/++g' | sed 's+munged/++g' > $(PATCH)
 
+.SILENT: bug
 bug:
 	git diff HEAD -- munged > tests/wardens/bug$(BUG_NUMBER).patch
 
