@@ -3,7 +3,7 @@ default: help
 PATCH         = applyHarness.patch
 CONTRACTS_DIR = ../contracts
 MUNGED_DIR    = munged
-BUG_NUMBER = echo "ls tests/wardens | wc -l"
+BUG_NUMBER = "echo ls tests/wardens | wc -l"
 
 help:
 	@echo "usage:"
