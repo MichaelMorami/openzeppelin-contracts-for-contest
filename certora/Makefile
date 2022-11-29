@@ -3,7 +3,7 @@ default: help
 PATCH         = applyHarness.patch
 CONTRACTS_DIR = ../contracts
 MUNGED_DIR    = munged
-BUG_NUMBER = "echo ls tests/wardens | wc -l"
+BUG_NUMBER = `ls tests/wardens | wc -l | tr -d ' '`
 
 help:
 	@echo "usage:"
@@ -20,7 +20,7 @@ record:
 	diff -druN $(CONTRACTS_DIR) $(MUNGED_DIR) | sed 's+../contracts/++g' | sed 's+munged/++g' > $(PATCH)
 
 bug:
-	git diff HEAD -- munged > tests/wardens/"bug$(BUG_NUMBER)".patch
+	git diff HEAD -- munged > tests/wardens/bug$(BUG_NUMBER).patch
 
 clean:
 	git clean -fdX
