@@ -24,7 +24,6 @@ record:
 bug:
 	git diff HEAD -- munged > tests/participants/bug$(bug_number).patch
 	
-
 clean:
 	git clean -fdX
 	touch $(PATCH)
