@@ -38,7 +38,7 @@ jobs:
       
       - name: Verify rule ${{ matrix.rule }}
         run: |	          
-          git apply certora/tests/certora/${{ matrix.patch }}
+          git apply --allow-empty certora/tests/certora/${{ matrix.patch }}
           sh certora/scripts/${{ matrix.rule }}
           
         env:
@@ -49,8 +49,9 @@ jobs:
       max-parallel: 16
       matrix:
         patch:
+          - original.patch
+          - bug0.patch
           - bug1.patch
           - bug2.patch
-          - bug3.patch
         rule:
           - verifyERC20.sh 
