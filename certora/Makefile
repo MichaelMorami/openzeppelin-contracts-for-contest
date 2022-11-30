@@ -3,7 +3,8 @@ default: help
 PATCH         = applyHarness.patch
 CONTRACTS_DIR = ../contracts
 MUNGED_DIR    = munged
-BUG_NUMBER = `ls tests/wardens | wc -l | tr -d ' '`
+
+bug_number = `ls tests/participants | wc -l | tr -d ' '`
 
 help:
 	@echo "usage:"
@@ -21,8 +22,8 @@ record:
 
 .SILENT: bug
 bug:
-	git diff HEAD -- munged > tests/wardens/bug$(BUG_NUMBER).patch
-
+	git diff HEAD -- munged > tests/participants/bug$(bug_number).patch
+	
 clean:
 	git clean -fdX
 	touch $(PATCH)
