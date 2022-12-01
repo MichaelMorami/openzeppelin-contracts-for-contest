@@ -50,15 +50,8 @@ jobs:
       matrix:
         patch:
           - original.patch
+          - bug0.patch
           - bug1.patch
           - bug2.patch
-          - bug3.patch
-          - bug4.patch
-          - bug5.patch
-          - bug6.patch
-          - bug7.patch
-          - bug8.patch
-          - bug9.patch
-          - bug10.patch
         rule:
-          - verifyERC20.sh 
+          - verify_ERC20_verified.sh
