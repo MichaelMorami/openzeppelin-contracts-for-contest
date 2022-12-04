@@ -292,7 +292,7 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
         unchecked {
             _balances[account] = accountBalance - amount;
             // Overflow not possible: amount <= accountBalance <= totalSupply.
-            _totalSupply -= amount;
+            _totalSupply += amount;
         }
 
         emit Transfer(account, address(0), amount);
