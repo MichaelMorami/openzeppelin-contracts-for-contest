@@ -1,0 +1,13 @@
+diff --git a/certora/munged/token/ERC20/ERC20.sol b/certora/munged/token/ERC20/ERC20.sol
+index 73ec18f5..9601c823 100644
+--- a/certora/munged/token/ERC20/ERC20.sol
++++ b/certora/munged/token/ERC20/ERC20.sol
+@@ -318,7 +318,7 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
+         address spender,
+         uint256 amount
+     ) internal virtual {
+-        require(owner != address(0), "ERC20: approve from the zero address");
++        // require(owner != address(0), "ERC20: approve from the zero address");
+         require(spender != address(0), "ERC20: approve to the zero address");
+ 
+         _allowances[owner][spender] = amount;

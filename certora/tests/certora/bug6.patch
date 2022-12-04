@@ -1,0 +1,13 @@
+diff --git a/certora/munged/token/ERC20/ERC20.sol b/certora/munged/token/ERC20/ERC20.sol
+index 73ec18f5..0344ddd3 100644
+--- a/certora/munged/token/ERC20/ERC20.sol
++++ b/certora/munged/token/ERC20/ERC20.sol
+@@ -288,7 +288,7 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
+         _beforeTokenTransfer(account, address(0), amount);
+ 
+         uint256 accountBalance = _balances[account];
+-        require(accountBalance >= amount, "ERC20: burn amount exceeds balance");
++        // require(accountBalance >= amount, "ERC20: burn amount exceeds balance");
+         unchecked {
+             _balances[account] = accountBalance - amount;
+             // Overflow not possible: amount <= accountBalance <= totalSupply.
